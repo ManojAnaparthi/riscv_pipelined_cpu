@@ -47,6 +47,26 @@ make test-single-cycle
 [`programs/single_cycle_cpu.hex`](./programs/single_cycle_cpu.hex) contains
 the equivalent assembled test program for instruction-memory initialization.
 
+## Five-stage pipeline
+
+The pipelined implementation is [`rtl/pipelined_cpu.sv`](./rtl/pipelined_cpu.sv).
+It separates instruction processing into IF, ID, EX, MEM, and WB using:
+
+- [`rtl/pipeline_if_id.sv`](./rtl/pipeline_if_id.sv)
+- [`rtl/pipeline_id_ex.sv`](./rtl/pipeline_id_ex.sv)
+- [`rtl/pipeline_ex_mem.sv`](./rtl/pipeline_ex_mem.sv)
+- [`rtl/pipeline_mem_wb.sv`](./rtl/pipeline_mem_wb.sv)
+
+The pipeline test uses independent instructions and explicit NOP spacing.
+Forwarding and load-use stalling are separate pipeline features and are not
+included in this implementation yet.
+
+Run the pipeline test independently with:
+
+```sh
+make test-pipeline
+```
+
 ## Running the tests
 
 Install Icarus Verilog or another SystemVerilog simulator, then run:
@@ -56,9 +76,10 @@ make test
 ```
 
 The Makefile invokes Icarus with SystemVerilog-2012 support and runs the
-component and single-cycle testbenches. A successful run prints:
+component, single-cycle, and pipeline testbenches. A successful run prints:
 
 ```text
 PASS: component tests
 PASS: single-cycle CPU tests
+PASS: pipelined CPU tests
 ```
