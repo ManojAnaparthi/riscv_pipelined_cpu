@@ -24,7 +24,18 @@ module register_file (
   end
 
   always_comb begin
-    read_data_1 = (read_addr_1 == 5'b0) ? 32'b0 : registers[read_addr_1];
-    read_data_2 = (read_addr_2 == 5'b0) ? 32'b0 : registers[read_addr_2];
+    if (read_addr_1 == 5'b0)
+      read_data_1 = 32'b0;
+    else if (write_enable && (write_addr == read_addr_1) && (write_addr != 5'b0))
+      read_data_1 = write_data;
+    else
+      read_data_1 = registers[read_addr_1];
+
+    if (read_addr_2 == 5'b0)
+      read_data_2 = 32'b0;
+    else if (write_enable && (write_addr == read_addr_2) && (write_addr != 5'b0))
+      read_data_2 = write_data;
+    else
+      read_data_2 = registers[read_addr_2];
   end
 endmodule

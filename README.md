@@ -57,9 +57,15 @@ It separates instruction processing into IF, ID, EX, MEM, and WB using:
 - [`rtl/pipeline_ex_mem.sv`](./rtl/pipeline_ex_mem.sv)
 - [`rtl/pipeline_mem_wb.sv`](./rtl/pipeline_mem_wb.sv)
 
-The pipeline test uses independent instructions and explicit NOP spacing.
-Forwarding and load-use stalling are separate pipeline features and are not
-included in this implementation yet.
+The pipeline now includes EX/MEM and MEM/WB forwarding, store-data
+forwarding, and a one-cycle load-use stall with an ID/EX bubble.
+
+The directed pipeline regression specifically exercises each hazard case:
+
+- Back-to-back ALU dependency for EX/MEM forwarding
+- Older producer dependency for MEM/WB forwarding
+- Store using a recently produced register for store-data forwarding
+- `LW` followed immediately by `ADD` for the load-use stall
 
 Run the pipeline test independently with:
 

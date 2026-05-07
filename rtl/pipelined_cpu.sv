@@ -64,6 +64,13 @@ module pipelined_cpu #(
 
   logic branch_taken;
   logic [31:0] branch_target;
+  logic        stall;
+  logic        use_rs1;
+  logic        use_rs2;
+  logic [1:0]  forward_a;
+  logic [1:0]  forward_b;
+  logic [31:0] forwarded_rs1_data;
+  logic [31:0] forwarded_rs2_data;
 
   instruction_memory #(.INIT_FILE(INSTRUCTION_FILE)) imem (
     .address(pc),
@@ -99,10 +106,65 @@ module pipelined_cpu #(
     .illegal_instruction(illegal_instruction)
   );
 
-  assign alu_operand_b = id_ex_alu_src ? id_ex_immediate : id_ex_rs2_data;
+  always_comb begin
+    use_rs1 = 1'b0;
+    use_rs2 = 1'b0;
+    case (if_id_instruction[6:0])
+      OPCODE_R_TYPE, OPCODE_BRANCH: begin
+        use_rs1 = 1'b1;
+        use_rs2 = 1'b1;
+      end
+      OPCODE_I_TYPE, OPCODE_LOAD: use_rs1 = 1'b1;
+      OPCODE_STORE: begin
+        use_rs1 = 1'b1;
+        use_rs2 = 1'b1;
+      end
+      default: begin
+        use_rs1 = 1'b0;
+        use_rs2 = 1'b0;
+      end
+    endcase
+  end
+
+  forwarding_unit forwarding (
+    .ex_mem_reg_write(ex_mem_reg_write && ex_mem_valid),
+    .ex_mem_mem_read(ex_mem_mem_read),
+    .ex_mem_rd(ex_mem_rd),
+    .mem_wb_reg_write(mem_wb_reg_write && mem_wb_valid),
+    .mem_wb_rd(mem_wb_rd),
+    .id_ex_rs1(id_ex_rs1),
+    .id_ex_rs2(id_ex_rs2),
+    .forward_a(forward_a),
+    .forward_b(forward_b)
+  );
+
+  always_comb begin
+    case (forward_a)
+      2'b10: forwarded_rs1_data = ex_mem_alu_result;
+      2'b01: forwarded_rs1_data = writeback_data;
+      default: forwarded_rs1_data = id_ex_rs1_data;
+    endcase
+    case (forward_b)
+      2'b10: forwarded_rs2_data = ex_mem_alu_result;
+      2'b01: forwarded_rs2_data = writeback_data;
+      default: forwarded_rs2_data = id_ex_rs2_data;
+    endcase
+  end
+
+  hazard_unit hazard (
+    .id_ex_mem_read(id_ex_mem_read && id_ex_valid),
+    .id_ex_rd(id_ex_rd),
+    .if_id_rs1(if_id_instruction[19:15]),
+    .if_id_rs2(if_id_instruction[24:20]),
+    .use_rs1(use_rs1),
+    .use_rs2(use_rs2),
+    .stall(stall)
+  );
+
+  assign alu_operand_b = id_ex_alu_src ? id_ex_immediate : forwarded_rs2_data;
 
   alu execute_alu (
-    .a(id_ex_rs1_data),
+    .a(forwarded_rs1_data),
     .b(alu_operand_b),
     .alu_control(id_ex_alu_control),
     .result(alu_result),
@@ -128,6 +190,7 @@ module pipelined_cpu #(
     .clk(clk),
     .reset(reset),
     .flush(branch_taken),
+    .enable(!stall),
     .pc_in(pc),
     .instruction_in(instruction),
     .valid_in(1'b1),
@@ -139,7 +202,7 @@ module pipelined_cpu #(
   pipeline_id_ex id_ex (
     .clk(clk),
     .reset(reset),
-    .flush(branch_taken),
+    .flush(branch_taken || stall),
     .pc_in(if_id_pc),
     .rs1_data_in(rs1_data),
     .rs2_data_in(rs2_data),
@@ -176,7 +239,7 @@ module pipelined_cpu #(
     .clk(clk),
     .reset(reset),
     .alu_result_in(alu_result),
-    .store_data_in(id_ex_rs2_data),
+    .store_data_in(forwarded_rs2_data),
     .rd_in(id_ex_rd),
     .reg_write_in(id_ex_reg_write),
     .mem_read_in(id_ex_mem_read),
@@ -213,7 +276,7 @@ module pipelined_cpu #(
   always_ff @(posedge clk) begin
     if (reset)
       pc <= 32'b0;
-    else
+    else if (!stall)
       pc <= next_pc;
   end
 endmodule
