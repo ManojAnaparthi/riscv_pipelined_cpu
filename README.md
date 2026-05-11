@@ -67,10 +67,21 @@ The directed pipeline regression specifically exercises each hazard case:
 - Store using a recently produced register for store-data forwarding
 - `LW` followed immediately by `ADD` for the load-use stall
 
+Branch handling is implemented in EX for `BEQ`. A taken branch redirects the
+PC and flushes younger instructions, while a not-taken branch continues at
+the sequential PC. The pipeline testbench covers both outcomes and writes a
+VCD waveform to `build/pipelined_cpu.vcd`.
+
 Run the pipeline test independently with:
 
 ```sh
 make test-pipeline
+```
+
+Open the generated waveform with:
+
+```sh
+gtkwave build/pipelined_cpu.vcd
 ```
 
 ## Running the tests

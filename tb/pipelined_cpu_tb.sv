@@ -44,6 +44,13 @@ module pipelined_cpu_tb;
                 imm[4:0], OPCODE_STORE};
   endfunction
 
+  function automatic [31:0] encode_b(
+    input integer imm, input integer rs1, input integer rs2
+  );
+    encode_b = {imm[12], imm[10:5], rs2[4:0], rs1[4:0], 3'b000,
+                imm[4:1], imm[11], OPCODE_BRANCH};
+  endfunction
+
   task automatic check_register(input integer register_number, input logic [31:0] expected);
     if (dut.regs.registers[register_number] !== expected)
       $fatal(1, "Register x%0d expected %h, got %h",
@@ -52,6 +59,9 @@ module pipelined_cpu_tb;
 
   integer index;
   initial begin
+    $dumpfile("build/pipelined_cpu.vcd");
+    $dumpvars(0, pipelined_cpu_tb);
+
     for (index = 0; index < 256; index = index + 1)
       dut.imem.memory[index] = 32'h0000_0013;
 
@@ -64,11 +74,18 @@ module pipelined_cpu_tb;
     dut.imem.memory[6] = encode_r(7'b0, 1, 6, 3'b000, 7);       // ADD x7, x6, x1
     dut.imem.memory[7] = encode_r(7'b0, 3, 7, 3'b110, 8);       // OR x8, x7, x3
     dut.imem.memory[8] = encode_r(7'b0100000, 1, 3, 3'b000, 4); // SUB x4, x3, x1
+    dut.imem.memory[9] = encode_b(8, 1, 1);                      // BEQ x1, x1, +8
+    dut.imem.memory[10] = encode_i(99, 0, 9);                   // skipped
+    dut.imem.memory[11] = encode_i(11, 0, 10);                  // branch target
+    dut.imem.memory[12] = encode_i(2, 0, 11);
+    dut.imem.memory[13] = encode_b(8, 1, 2);                    // not taken
+    dut.imem.memory[14] = encode_i(14, 0, 12);                  // executes
+    dut.imem.memory[15] = encode_i(15, 0, 13);
 
     reset = 1'b1;
     repeat (2) @(posedge clk);
     reset = 1'b0;
-    repeat (16) @(posedge clk);
+    repeat (24) @(posedge clk);
     #1;
 
     check_register(1, 32'd5);
@@ -79,6 +96,9 @@ module pipelined_cpu_tb;
     check_register(6, 32'd12);
     check_register(7, 32'd17);
     check_register(8, 32'd29);
+    check_register(9, 32'd0);
+    check_register(10, 32'd11);
+    check_register(12, 32'd14);
     if (dut.dmem.memory[25] !== 32'd12)
       $fatal(1, "Data memory word 25 expected 12, got %h", dut.dmem.memory[25]);
     if (!ex_mem_forward_seen)
