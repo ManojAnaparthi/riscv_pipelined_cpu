@@ -4,7 +4,7 @@ RTL := rtl/riscv_defs.sv rtl/alu.sv rtl/register_file.sv \
        rtl/single_cycle_cpu.sv rtl/pipeline_if_id.sv \
        rtl/pipeline_id_ex.sv rtl/pipeline_ex_mem.sv \
        rtl/pipeline_mem_wb.sv rtl/forwarding_unit.sv \
-       rtl/hazard_unit.sv rtl/pipelined_cpu.sv
+       rtl/hazard_unit.sv rtl/pipelined_cpu.sv rtl/cpu_assertions.sv
 BUILD_DIR := build
 
 .PHONY: test test-components test-single-cycle test-pipeline clean

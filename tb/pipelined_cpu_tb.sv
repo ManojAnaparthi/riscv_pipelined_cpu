@@ -11,6 +11,21 @@ module pipelined_cpu_tb;
   logic mem_wb_forward_seen = 1'b0;
   logic store_forward_seen = 1'b0;
   pipelined_cpu dut (.clk(clk), .reset(reset), .pc(pc));
+  cpu_assertions assertions (
+    .clk(clk),
+    .reset(reset),
+    .pc(pc),
+    .if_id_instruction(dut.if_id_instruction),
+    .id_ex_valid(dut.id_ex_valid),
+    .registers_x0(dut.regs.registers[0]),
+    .ex_mem_valid(dut.ex_mem_valid),
+    .ex_mem_mem_write(dut.ex_mem_mem_write),
+    .data_mem_write(dut.dmem.mem_write),
+    .mem_wb_valid(dut.mem_wb_valid),
+    .mem_wb_reg_write(dut.mem_wb_reg_write),
+    .mem_wb_rd(dut.mem_wb_rd),
+    .stall(dut.stall)
+  );
   always #5 clk = ~clk;
   always @(posedge clk) begin
     if (dut.stall)

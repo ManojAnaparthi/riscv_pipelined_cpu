@@ -72,6 +72,21 @@ PC and flushes younger instructions, while a not-taken branch continues at
 the sequential PC. The pipeline testbench covers both outcomes and writes a
 VCD waveform to `build/pipelined_cpu.vcd`.
 
+## Assertions
+
+[`rtl/cpu_assertions.sv`](./rtl/cpu_assertions.sv) adds five portable
+SystemVerilog immediate-assertion checks to the pipeline testbench:
+
+- Reset clears the PC.
+- Register `x0` remains zero.
+- A valid store propagates its memory-write control.
+- A valid writeback has a known destination register.
+- A load-use stall holds PC and IF/ID while inserting an ID/EX bubble.
+
+The assertions run automatically with `make test-pipeline`. They use immediate
+assertions instead of concurrent SVA syntax because simulator support for SVA
+varies across lightweight open-source simulators.
+
 Run the pipeline test independently with:
 
 ```sh
