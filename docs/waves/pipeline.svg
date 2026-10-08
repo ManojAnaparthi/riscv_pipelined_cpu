@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" width="1600" height="700" viewBox="0 0 1600 700" role="img" aria-labelledby="pipe-title pipe-desc" xmlns:c2pa="http://c2pa.org/manifest">
+  <title id="pipe-title">RV32I-Subset Five-Stage Pipeline: IF, ID, EX, MEM, WB</title>
+  <desc id="pipe-desc">Five stage blocks IF, ID, EX, MEM and WB in one row, separated by the IF/ID, ID/EX, EX/MEM and MEM/WB pipeline registers. Above the row: dashed blue forwarding paths from EX/MEM (2'b10, priority) and MEM/WB (2'b01) back to EX; dashed red Hazard Unit paths (load-use stall only) that hold PC and IF/ID and flush ID/EX; below the row, dashed orange Pipeline Control paths driven by branch_taken that redirect PC and flush IF/ID and ID/EX on a taken BEQ. Three numbered panels below explain forwarding, the one-bubble load-use stall, and the taken BEQ.</desc>
+  <metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpiMDRjYzE0OS04N2E3LTRjNjUtOTM4Yi0yYzc2NjZlMWQ0MWIAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaJIqY0AcJUsHb/yg0lDvFm0AAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDowMjM2ODYzZS0xYjY1LTQ3MDUtOTk0Yy0wY2ZiMmVjOTE1YzZscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoXTcdszXpM2+Mb1nUHOKahwAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg4rsc3xd5sPtmlYCvgPDdFQwKRc9X6ER0FoI0pyyz2g6kZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaGjLJ6kOBOZlMLLAR6EKD1oAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIFnfsG09oCfVWPhqoJ/sHfd68fg2tYIkbYnXMArEC0ZtZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GQQRZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmIwNGNjMTQ5LTg3YTctNGM2NS05MzhiLTJjNzY2NmUxZDQxYi9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjA3MzE4NDcwLTU1ZWItNDZiYy1hNDUwLThlMTgxOGUzMzg5NnJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDiuxzfF3mw+2aVgK+A8N0VDApFz1foRHQWgjSnLLPaDqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgg39leQMvoSCxqoPNcu3DfLnibssDufG5lJLe/EBAe2uSiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggXDAhvCbBARcRXcJ92y9ZTeQO9QUhoXpaXFxJKGS7wjB0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQLJeKVnn2n5q4znoLBfYK/2oQZACFQ4EAxqoLpPrcMz+LBoadpNwCIiUWo/SzJdvx30oHjIGfnfixXVAleeOQZE=</c2pa:manifest>
+    <rdf:RDF>
+      <rdf:Description rdf:about="">
+        <dc:title>pipeline.svg</dc:title>
+        <dc:description>Five-stage pipeline overview for an educational SystemVerilog RV32I-subset processor with forwarding, load-use stall and EX-stage BEQ resolution.</dc:description>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:language>en</dc:language>
+      </rdf:Description>
+    </rdf:RDF>
+  </metadata>
+  <defs>
+    <style type="text/css"><![CDATA[
+      .bg        { fill: #ffffff; }
+      .t-title   { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 26px; font-weight: 700; fill: #0f1f3d; }
+      .t-sub     { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 15px; fill: #3d4b66; }
+      .t-stage   { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 26px; font-weight: 700; fill: #0f1f3d; text-anchor: middle; }
+      .t-stage-n { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 700; fill: #3d4b66; text-anchor: middle; }
+      .t-item    { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 13.5px; fill: #24324d; text-anchor: middle; }
+      .t-preg    { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 700; fill: #ffffff; text-anchor: middle; letter-spacing: 1px; }
+      .t-wire-f  { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 12.5px; fill: #1557c7; font-weight: 700; }
+      .t-wire-c  { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 12.5px; fill: #b3261e; font-weight: 700; }
+      .t-wire-b  { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 12.5px; fill: #b45309; font-weight: 700; }
+      .t-small   { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 12.5px; fill: #56637d; }
+      .t-legend  { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 13px; fill: #24324d; }
+      .t-badge   { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+      .t-panel-h { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 17px; font-weight: 700; fill: #0f1f3d; }
+      .t-panel   { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 14px; fill: #24324d; }
+      .t-panel-f { font-family: Inter, Arial, Helvetica, sans-serif; font-size: 13px; font-style: italic; fill: #56637d; }
+      .stage     { fill: #eef3fb; stroke: #1f3a68; stroke-width: 2.5; }
+      .preg      { fill: #1f3a68; stroke: #1f3a68; stroke-width: 2; }
+      .panel     { fill: #f8fafd; stroke: #c3cddf; stroke-width: 1.5; }
+      .bar-fwd   { fill: #1557c7; }
+      .bar-ctrl  { fill: #b3261e; }
+      .bar-br    { fill: #c2620a; }
+      .w-data    { fill: none; stroke: #1f3a68; stroke-width: 3; stroke-linejoin: round; }
+      .w-fwd     { fill: none; stroke: #1557c7; stroke-width: 2.5; stroke-dasharray: 9 5; stroke-linejoin: round; }
+      .w-ctrl    { fill: none; stroke: #b3261e; stroke-width: 2.5; stroke-dasharray: 6 4; stroke-linejoin: round; }
+      .w-br      { fill: none; stroke: #c2620a; stroke-width: 2.5; stroke-dasharray: 6 4; stroke-linejoin: round; }
+      .dot-ctrl  { fill: #b3261e; }
+      .dot-br    { fill: #c2620a; }
+      .badge-fwd { fill: #1557c7; }
+      .badge-ctrl{ fill: #b3261e; }
+      .badge-br  { fill: #c2620a; }
+      .bullet    { fill: #3d4b66; }
+    ]]></style>
+    <marker id="ah-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="11" refX="12" refY="5.5" orient="auto">
+      <path d="M0,0 L12,5.5 L0,11 Z" fill="#1f3a68"/>
+    </marker>
+    <marker id="ah-fwd" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="10" refX="11" refY="5" orient="auto">
+      <path d="M0,0 L11,5 L0,10 Z" fill="#1557c7"/>
+    </marker>
+    <marker id="ah-ctrl" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="10" refX="11" refY="5" orient="auto">
+      <path d="M0,0 L11,5 L0,10 Z" fill="#b3261e"/>
+    </marker>
+    <marker id="ah-br" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="10" refX="11" refY="5" orient="auto">
+      <path d="M0,0 L11,5 L0,10 Z" fill="#c2620a"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1600" height="700"/>
+
+  <!-- ===== Title ===== -->
+  <text class="t-title" x="40" y="40">RV32I-Subset Five-Stage Pipeline</text>
+  <text class="t-sub" x="40" y="64">IF, ID, EX, MEM, WB with forwarding, a one-bubble load-use stall, and BEQ resolved in EX</text>
+
+  <!-- ===== Legend ===== -->
+  <g id="legend">
+    <line class="w-data" x1="1030" y1="82" x2="1062" y2="82"/>
+    <text class="t-legend" x="1070" y="87">Datapath</text>
+    <line class="w-fwd" x1="1150" y1="82" x2="1182" y2="82"/>
+    <text class="t-legend" x="1190" y="87">Forwarding</text>
+    <line class="w-ctrl" x1="1280" y1="82" x2="1312" y2="82"/>
+    <text class="t-legend" x="1320" y="87">Load-use stall</text>
+    <line class="w-br" x1="1430" y1="82" x2="1462" y2="82"/>
+    <text class="t-legend" x="1470" y="87">Redirect + flush</text>
+  </g>
+
+  <!-- ===== Control paths above the row ===== -->
+
+  <!-- (2) Hazard Unit: load-use stall only -->
+  <path class="w-ctrl" d="M520,215 V180"/>
+  <path class="w-ctrl" d="M140,180 H635"/>
+  <circle class="dot-ctrl" cx="520" cy="180" r="4.5"/>
+  <path class="w-ctrl" d="M140,180 V215" marker-end="url(#ah-ctrl)"/>
+  <path class="w-ctrl" d="M305,180 V205" marker-end="url(#ah-ctrl)"/>
+  <path class="w-ctrl" d="M635,180 V205" marker-end="url(#ah-ctrl)"/>
+  <text class="t-wire-c" x="148" y="172">hold PC</text>
+  <text class="t-wire-c" x="313" y="172">hold IF/ID</text>
+  <text class="t-wire-c" x="643" y="172">flush ID/EX</text>
+  <text class="t-small" x="528" y="203">Hazard Unit</text>
+  <circle class="badge-ctrl" cx="152" cy="140" r="12"/>
+  <text class="t-badge" x="152" y="145">2</text>
+  <text class="t-wire-c" x="172" y="145">Hazard Unit: load-use stall only</text>
+
+  <!-- (1) Forwarding into EX -->
+  <path class="w-fwd" d="M1295,205 V150 H820 V215" marker-end="url(#ah-fwd)"/>
+  <path class="w-fwd" d="M965,205 V180 H860 V215" marker-end="url(#ah-fwd)"/>
+  <text class="t-wire-f" x="1010" y="142">MEM/WB to EX (2'b01, fallback)</text>
+  <text class="t-wire-f" x="870" y="172">EX/MEM to EX (2'b10)</text>
+  <circle class="badge-fwd" cx="1327" cy="150" r="12"/>
+  <text class="t-badge" x="1327" y="155">1</text>
+
+  <!-- ===== Main pipeline row ===== -->
+  <g id="pipeline-row">
+    <!-- IF -->
+    <rect class="stage" x="40" y="215" width="200" height="160" rx="14"/>
+    <text class="t-stage" x="140" y="252">IF</text>
+    <text class="t-stage-n" x="140" y="274">Instruction Fetch</text>
+    <text class="t-item" x="140" y="312">PC, PC + 4</text>
+    <text class="t-item" x="140" y="332">Instruction Memory</text>
+
+    <path class="w-data" d="M240,295 H280" marker-end="url(#ah-data)"/>
+    <rect class="preg" x="280" y="205" width="50" height="180" rx="6"/>
+    <text class="t-preg" transform="translate(310.6,295) rotate(-90)">IF/ID</text>
+    <path class="w-data" d="M330,295 H370" marker-end="url(#ah-data)"/>
+
+    <!-- ID -->
+    <rect class="stage" x="370" y="215" width="200" height="160" rx="14"/>
+    <text class="t-stage" x="470" y="252">ID</text>
+    <text class="t-stage-n" x="470" y="274">Decode / Register Read</text>
+    <text class="t-item" x="470" y="306">Control Unit</text>
+    <text class="t-item" x="470" y="325">Register File</text>
+    <text class="t-item" x="470" y="344">Immediate Generator</text>
+    <text class="t-item" x="470" y="363">Hazard Unit</text>
+
+    <path class="w-data" d="M570,295 H610" marker-end="url(#ah-data)"/>
+    <rect class="preg" x="610" y="205" width="50" height="180" rx="6"/>
+    <text class="t-preg" transform="translate(640.6,295) rotate(-90)">ID/EX</text>
+    <path class="w-data" d="M660,295 H700" marker-end="url(#ah-data)"/>
+
+    <!-- EX -->
+    <rect class="stage" x="700" y="215" width="200" height="160" rx="14"/>
+    <text class="t-stage" x="800" y="252">EX</text>
+    <text class="t-stage-n" x="800" y="274">Execute</text>
+    <text class="t-item" x="800" y="306">Forwarding Unit + Muxes</text>
+    <text class="t-item" x="800" y="325">ALU</text>
+    <text class="t-item" x="800" y="344">BEQ compare + target</text>
+
+    <path class="w-data" d="M900,295 H940" marker-end="url(#ah-data)"/>
+    <rect class="preg" x="940" y="205" width="50" height="180" rx="6"/>
+    <text class="t-preg" transform="translate(970.6,295) rotate(-90)">EX/MEM</text>
+    <path class="w-data" d="M990,295 H1030" marker-end="url(#ah-data)"/>
+
+    <!-- MEM -->
+    <rect class="stage" x="1030" y="215" width="200" height="160" rx="14"/>
+    <text class="t-stage" x="1130" y="252">MEM</text>
+    <text class="t-stage-n" x="1130" y="274">Memory Access</text>
+    <text class="t-item" x="1130" y="306">Data Memory</text>
+    <text class="t-item" x="1130" y="325">LW read, SW write</text>
+
+    <path class="w-data" d="M1230,295 H1270" marker-end="url(#ah-data)"/>
+    <rect class="preg" x="1270" y="205" width="50" height="180" rx="6"/>
+    <text class="t-preg" transform="translate(1300.6,295) rotate(-90)">MEM/WB</text>
+    <path class="w-data" d="M1320,295 H1360" marker-end="url(#ah-data)"/>
+
+    <!-- WB -->
+    <rect class="stage" x="1360" y="215" width="200" height="160" rx="14"/>
+    <text class="t-stage" x="1460" y="252">WB</text>
+    <text class="t-stage-n" x="1460" y="274">Writeback</text>
+    <text class="t-item" x="1460" y="306">Writeback Mux</text>
+    <text class="t-item" x="1460" y="325">to Register File</text>
+  </g>
+
+  <!-- (3) Pipeline Control below the row: branch redirect + flush, driven by branch_taken -->
+  <path class="w-br" d="M720,375 V425 H90 V375" marker-end="url(#ah-br)"/>
+  <circle class="dot-br" cx="305" cy="425" r="4.5"/>
+  <circle class="dot-br" cx="635" cy="425" r="4.5"/>
+  <path class="w-br" d="M305,425 V385" marker-end="url(#ah-br)"/>
+  <path class="w-br" d="M635,425 V385" marker-end="url(#ah-br)"/>
+  <text class="t-wire-b" x="98" y="410">redirect PC</text>
+  <text class="t-wire-b" x="313" y="410">flush IF/ID</text>
+  <text class="t-wire-b" x="627" y="410" text-anchor="end">flush ID/EX</text>
+  <text class="t-wire-b" x="728" y="410">branch_taken</text>
+  <circle class="badge-br" cx="102" cy="455" r="12"/>
+  <text class="t-badge" x="102" y="460">3</text>
+  <text class="t-wire-b" x="122" y="460">Pipeline Control: a taken BEQ loads PC with id_ex_pc + id_ex_immediate and flushes IF/ID and ID/EX</text>
+  <text class="t-small" x="1560" y="460" text-anchor="end">Numbered callouts match the panels below.</text>
+
+  <g transform="translate(0,50)">
+
+  <!-- ===== Panel 1: Forwarding ===== -->
+  <g id="panel-forwarding">
+    <rect class="panel" x="40" y="432" width="480" height="196" rx="12"/>
+    <rect class="bar-fwd" x="54" y="432" width="452" height="5" rx="2.5"/>
+    <circle class="badge-fwd" cx="70" cy="466" r="13"/>
+    <text class="t-badge" x="70" y="471">1</text>
+    <text class="t-panel-h" x="94" y="472">Forwarding</text>
+    <circle class="bullet" cx="66" cy="502" r="3"/>
+    <text class="t-panel" x="78" y="507">EX/MEM forwarding (2'b10) has priority.</text>
+    <circle class="bullet" cx="66" cy="528" r="3"/>
+    <text class="t-panel" x="78" y="533">MEM/WB forwarding (2'b01) is the fallback.</text>
+    <circle class="bullet" cx="66" cy="554" r="3"/>
+    <text class="t-panel" x="78" y="559">Store-data forwarding is supported: SW receives</text>
+    <text class="t-panel" x="78" y="579">the newest rs2 value before the MEM stage.</text>
+    <text class="t-panel-f" x="62" y="610">Load data is never forwarded from EX/MEM.</text>
+  </g>
+
+  <!-- ===== Panel 2: Load-use stall ===== -->
+  <g id="panel-load-use">
+    <rect class="panel" x="560" y="432" width="480" height="196" rx="12"/>
+    <rect class="bar-ctrl" x="574" y="432" width="452" height="5" rx="2.5"/>
+    <circle class="badge-ctrl" cx="590" cy="466" r="13"/>
+    <text class="t-badge" x="590" y="471">2</text>
+    <text class="t-panel-h" x="614" y="472">Load-use stall (Hazard Unit)</text>
+    <circle class="bullet" cx="586" cy="502" r="3"/>
+    <text class="t-panel" x="598" y="507">PC is held.</text>
+    <circle class="bullet" cx="586" cy="528" r="3"/>
+    <text class="t-panel" x="598" y="533">IF/ID is held.</text>
+    <circle class="bullet" cx="586" cy="554" r="3"/>
+    <text class="t-panel" x="598" y="559">ID/EX is flushed.</text>
+    <circle class="bullet" cx="586" cy="580" r="3"/>
+    <text class="t-panel" x="598" y="585">One bubble is inserted.</text>
+    <text class="t-panel-f" x="582" y="610">Trigger: LW followed by an instruction that reads its rd.</text>
+  </g>
+
+  <!-- ===== Panel 3: Taken BEQ ===== -->
+  <g id="panel-beq">
+    <rect class="panel" x="1080" y="432" width="480" height="196" rx="12"/>
+    <rect class="bar-br" x="1094" y="432" width="452" height="5" rx="2.5"/>
+    <circle class="badge-br" cx="1110" cy="466" r="13"/>
+    <text class="t-badge" x="1110" y="471">3</text>
+    <text class="t-panel-h" x="1134" y="472">Taken BEQ (Pipeline Control)</text>
+    <circle class="bullet" cx="1106" cy="502" r="3"/>
+    <text class="t-panel" x="1118" y="507">Branch resolves in EX (ALU subtract, zero flag).</text>
+    <circle class="bullet" cx="1106" cy="528" r="3"/>
+    <text class="t-panel" x="1118" y="533">PC redirects to id_ex_pc + id_ex_immediate.</text>
+    <circle class="bullet" cx="1106" cy="554" r="3"/>
+    <text class="t-panel" x="1118" y="559">IF/ID and ID/EX are flushed.</text>
+    <circle class="bullet" cx="1106" cy="580" r="3"/>
+    <text class="t-panel" x="1118" y="585">Driven by branch_taken, not by the Hazard Unit.</text>
+    <text class="t-panel-f" x="1102" y="610">Not taken: the sequential PC + 4 continues.</text>
+  </g>
+  </g>
+</svg>
